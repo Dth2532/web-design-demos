@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crescent Cafe — Sand Springs, OK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dusk-indigo:#2E2A4A;
+    --dusk-rust:#B94E2E;
+    --neon-yolk:#F3B72E;
+    --plate-cream:#F6EFDF;
+    --counter-sage:#7E8B6E;
+    --coffee-ink:#3A2A22;
+    --paper:#FFFDF6;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Libre Franklin',sans-serif;
+    color:var(--coffee-ink);
+    background:var(--plate-cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wordmark{
+    font-family:'Rye',serif;
+    line-height:1;
+  }
+  .mono{
+    font-family:'Courier Prime',monospace;
+  }
+  a{color:inherit;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 24px;
+    background:var(--coffee-ink);
+    color:var(--plate-cream);
+    font-size:14px;
+    letter-spacing:.04em;
+  }
+  .topbar .wordmark{font-size:20px;color:var(--neon-yolk);}
+  .topbar-links{display:flex;gap:20px;}
+  .topbar-links a{text-decoration:none;font-weight:500;}
+  .topbar-links a:hover{color:var(--neon-yolk);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(180deg,#211d3a 0%,var(--dusk-indigo) 38%,var(--dusk-rust) 100%);
+    color:var(--plate-cream);
+    padding:96px 24px 140px;
+    text-align:center;
+  }
+  .hero-eyebrow{
+    font-family:'Courier Prime',monospace;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--neon-yolk);
+    opacity:.9;
+    margin:0 0 18px;
+  }
+  .hero h1.wordmark{
+    font-size:clamp(48px,9vw,96px);
+    margin:0;
+    color:var(--neon-yolk);
+    text-shadow:0 0 18px rgba(243,183,46,.55), 0 0 46px rgba(243,183,46,.25);
+  }
+  .hero-tagline{
+    font-style:italic;
+    font-size:clamp(16px,2.4vw,22px);
+    margin:14px auto 34px;
+    max-width:32ch;
+    color:#F1E7D0;
+  }
+  .open-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 22px;
+    border-radius:999px;
+    border:1px solid rgba(243,183,46,.6);
+    font-family:'Courier Prime',monospace;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-size:13px;
+    color:var(--neon-yolk);
+    animation:signPulse 3.2s ease-in-out infinite;
+    margin-bottom:38px;
+  }
+  .open-badge .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--neon-yolk);
+    box-shadow:0 0 8px 2px rgba(243,183,46,.8);
+  }
+  @keyframes signPulse{
+    0%,100%{opacity:1;}
+    50%{opacity:.55;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .open-badge{animation:none;}
+  }
+
+  .hero-info{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 28px;
+    justify-content:center;
+    font-family:'Courier Prime',monospace;
+    font-size:13px;
+    color:#E9DFC7;
+    margin-bottom:36px;
+  }
+  .hero-cta{
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:6px;
+    font-weight:600;
+    text-decoration:none;
+    font-size:15px;
+    letter-spacing:.02em;
+    border:2px solid transparent;
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{
+    background:var(--neon-yolk);
+    color:#3A2600;
+  }
+  .btn-outline{
+    border-color:rgba(246,239,223,.55);
+    color:var(--plate-cream);
+  }
+
+  .roofline{
+    position:absolute;
+    left:0;right:0;bottom:0;
+    height:64px;
+    background:var(--coffee-ink);
+    clip-path:polygon(0 100%,0 40%,4% 40%,7% 15%,10% 40%,14% 40%,17% 55%,21% 40%,25% 40%,28% 20%,31% 40%,35% 40%,38% 50%,42% 40%,46% 40%,49% 10%,52% 40%,56% 40%,59% 55%,63% 40%,67% 40%,70% 25%,73% 40%,77% 40%,80% 50%,84% 40%,88% 40%,91% 15%,94% 40%,97% 40%,100% 55%,100% 100%);
+  }
+
+  /* ---------- story ---------- */
+  .story{
+    max-width:760px;
+    margin:0 auto;
+    padding:88px 24px 64px;
+    text-align:center;
+  }
+  .eyebrow{
+    font-family:'Courier Prime',monospace;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--dusk-rust);
+    margin:0 0 14px;
+  }
+  .story h2{
+    font-family:'Rye',serif;
+    font-weight:400;
+    font-size:clamp(28px,4vw,40px);
+    margin:0 0 22px;
+    color:var(--coffee-ink);
+  }
+  .story p{
+    font-size:17px;
+    line-height:1.75;
+    color:#5A4436;
+    max-width:60ch;
+    margin:0 auto 28px;
+  }
+  .pull-ticket{
+    display:inline-block;
+    background:var(--paper);
+    padding:20px 34px 26px;
+    margin-top:8px;
+    transform:rotate(-2deg);
+    box-shadow:0 10px 24px rgba(58,42,34,.16);
+    position:relative;
+  }
+  .pull-ticket::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:10px;
+    background:var(--paper);
+    clip-path:polygon(0% 100%,4% 0%,8% 100%,12% 0%,16% 100%,20% 0%,24% 100%,28% 0%,32% 100%,36% 0%,40% 100%,44% 0%,48% 100%,52% 0%,56% 100%,60% 0%,64% 100%,68% 0%,72% 100%,76% 0%,80% 100%,84% 0%,88% 100%,92% 0%,96% 100%,100% 0%,100% 100%);
+    transform:translateY(-100%);
+  }
+  .pull-ticket p{
+    font-family:'Courier Prime',monospace;
+    font-size:17px;
+    font-style:normal;
+    margin:0 0 6px;
+    color:var(--coffee-ink);
+  }
+  .pull-ticket span{
+    font-family:'Courier Prime',monospace;
+    font-size:12px;
+    color:var(--counter-sage);
+    letter-spacing:.08em;
+  }
+
+  /* ---------- ticket / menu section ---------- */
+  .ticket-section{
+    background:var(--coffee-ink);
+    padding:88px 24px 96px;
+    color:var(--plate-cream);
+    text-align:center;
+  }
+  .ticket-section .eyebrow{color:var(--neon-yolk);}
+  .ticket-section h2{
+    font-family:'Rye',serif;
+    font-weight:400;
+    font-size:clamp(28px,4vw,40px);
+    margin:0 0 46px;
+  }
+  .order-ticket{
+    max-width:420px;
+    margin:0 auto;
+    background:var(--paper);
+    color:var(--coffee-ink);
+    padding:8px 34px 30px;
+    text-align:left;
+    position:relative;
+    transform:rotate(1.4deg);
+    box-shadow:0 18px 40px rgba(0,0,0,.35);
+  }
+  .order-ticket::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:12px;
+    background:var(--paper);
+    clip-path:polygon(0% 100%,3% 0%,7% 100%,11% 0%,15% 100%,19% 0%,23% 100%,27% 0%,31% 100%,35% 0%,39% 100%,43% 0%,47% 100%,51% 0%,55% 100%,59% 0%,63% 100%,67% 0%,71% 100%,75% 0%,79% 100%,83% 0%,87% 100%,91% 0%,95% 100%,99% 0%,100% 40%,100% 100%);
+    transform:translateY(-100%);
+  }
+  .ticket-head{
+    text-align:center;
+    font-family:'Courier Prime',monospace;
+    border-bottom:1px dashed #C9BCA6;
+    padding:22px 0 14px;
+    letter-spacing:.08em;
+  }
+  .ticket-head .big{font-size:15px;font-weight:700;}
+  .ticket-head .small{font-size:11px;color:#8A7862;margin-top:4px;}
+  .ticket-items{
+    font-family:'Courier Prime',monospace;
+    font-size:13.5px;
+    padding:18px 0 8px;
+  }
+  .ticket-row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:9px 0;
+    border-bottom:1px dotted #DCD2BE;
+  }
+  .ticket-row:last-child{border-bottom:none;}
+  .ticket-row .name{font-weight:700;text-transform:uppercase;}
+  .ticket-row .desc{display:block;font-weight:400;color:#8A7862;font-size:11.5px;margin-top:2px;text-transform:none;}
+  .ticket-row .price{white-space:nowrap;font-weight:700;}
+  .ticket-foot{
+    text-align:center;
+    font-family:'Courier Prime',monospace;
+    font-size:11px;
+    color:#8A7862;
+    border-top:1px dashed #C9BCA6;
+    padding-top:14px;
+    margin-top:8px;
+  }
+  .ticket-note{
+    margin-top:34px;
+    font-size:14px;
+    color:#D8CCB5;
+  }
+
+  /* ---------- reviews / corkboard ---------- */
+  .reviews{
+    padding:88px 24px;
+    max-width:1000px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .reviews h2{
+    font-family:'Rye',serif;
+    font-weight:400;
+    font-size:clamp(28px,4vw,40px);
+    margin:0 0 50px;
+  }
+  .cork-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:32px;
+    text-align:left;
+  }
+  .cork-card{
+    background:var(--paper);
+    padding:26px 22px;
+    box-shadow:0 8px 20px rgba(58,42,34,.14);
+    position:relative;
+  }
+  .cork-card:nth-child(1){transform:rotate(-2deg);}
+  .cork-card:nth-child(2){transform:rotate(1.6deg);}
+  .cork-card:nth-child(3){transform:rotate(-1deg);}
+  .cork-card::before{
+    content:"";
+    position:absolute;
+    top:-9px;left:50%;
+    width:16px;height:16px;
+    margin-left:-8px;
+    border-radius:50%;
+    background:var(--dusk-rust);
+    box-shadow:0 2px 3px rgba(0,0,0,.3);
+  }
+  .cork-card p{
+    font-size:16px;
+    line-height:1.6;
+    margin:6px 0 16px;
+    color:var(--coffee-ink);
+  }
+  .cork-card span{
+    font-family:'Courier Prime',monospace;
+    font-size:12px;
+    color:var(--counter-sage);
+    letter-spacing:.05em;
+  }
+  .badge-stat{
+    display:inline-block;
+    font-family:'Courier Prime',monospace;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--dusk-rust);
+    border:1px solid var(--dusk-rust);
+    padding:4px 10px;
+    margin-bottom:12px;
+  }
+
+  /* ---------- footer / hours+map ---------- */
+  .footer-info{
+    background:linear-gradient(180deg,var(--dusk-indigo),#211d3a);
+    color:var(--plate-cream);
+    padding:80px 24px 40px;
+  }
+  .footer-grid{
+    max-width:1000px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+  }
+  .footer-info h2{
+    font-family:'Rye',serif;
+    font-weight:400;
+    font-size:28px;
+    margin:0 0 20px;
+    color:var(--neon-yolk);
+  }
+  .footer-info .addr{
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:18px;
+  }
+  .footer-info .addr a{
+    text-decoration:none;
+    border-bottom:1px solid rgba(246,239,223,.4);
+  }
+  table.hours{
+    font-family:'Courier Prime',monospace;
+    font-size:14px;
+    border-collapse:collapse;
+    width:100%;
+    max-width:280px;
+  }
+  table.hours td{
+    padding:6px 0;
+    border-bottom:1px dotted rgba(246,239,223,.25);
+  }
+  table.hours td:last-child{text-align:right;}
+  .map-wrap{
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+    min-height:260px;
+  }
+  .map-wrap iframe{
+    width:100%;height:100%;min-height:260px;border:0;display:block;filter:saturate(.85);
+  }
+  .footer-bottom{
+    max-width:1000px;
+    margin:56px auto 0;
+    padding-top:24px;
+    border-top:1px solid rgba(246,239,223,.15);
+    font-size:12px;
+    color:#B9AF9C;
+    text-align:center;
+  }
+
+  @media (max-width:720px){
+    .footer-grid{grid-template-columns:1fr;}
+    .topbar-links{display:none;}
+  }
+
+  /* ---------- mobile sticky CTA ---------- */
+  .mobile-cta{
+    display:none;
+  }
+  @media (max-width:640px){
+    .mobile-cta{
+      display:flex;
+      position:fixed;
+      bottom:0;left:0;right:0;
+      z-index:40;
+      background:var(--coffee-ink);
+      border-top:1px solid rgba(246,239,223,.15);
+    }
+    .mobile-cta a{
+      flex:1;
+      text-align:center;
+      padding:16px 8px;
+      font-family:'Courier Prime',monospace;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      text-decoration:none;
+      color:var(--plate-cream);
+    }
+    .mobile-cta a:first-child{
+      background:var(--neon-yolk);
+      color:#3A2600;
+      font-weight:700;
+    }
+    body{padding-bottom:56px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="wordmark">Crescent Cafe</span>
+  <div class="topbar-links">
+    <a href="#menu">Today's ticket</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#find-us">Hours &amp; location</a>
+    <a href="tel:+19182456443">(918) 245-6443</a>
+  </div>
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">Sand Springs, Oklahoma · Est. 1994</p>
+  <h1 class="wordmark">Crescent Cafe</h1>
+  <p class="hero-tagline">Home cooking, off the highway.</p>
+  <div class="open-badge"><span class="dot"></span> Open now</div>
+  <div class="hero-info">
+    <span>3417 S 113th West Ave, Sand Springs, OK</span>
+    <span>&middot;</span>
+    <span>(918) 245-6443</span>
+    <span>&middot;</span>
+    <span>Mon&ndash;Sat 6a&ndash;2p</span>
+  </div>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="tel:+19182456443">Call now</a>
+    <a class="btn btn-outline" href="https://maps.google.com/?q=3417+S+113th+West+Ave,+Sand+Springs,+OK+74063" target="_blank" rel="noopener">Get directions</a>
+  </div>
+  <div class="roofline" aria-hidden="true"></div>
+</section>
+
+<section class="story">
+  <p class="eyebrow">Since 1994</p>
+  <h2>Thirty years of Tuesday specials</h2>
+  <p>Crescent Cafe has been dishing up scratch-made comfort food from this same Sand Springs storefront for three decades &mdash; meatloaf, chicken-fried steak, and biscuits regulars will elbow you for. Ask anyone in town where to get a real breakfast, and they'll send you here.</p>
+  <div class="pull-ticket">
+    <p>&ldquo;Great food, even better people.&rdquo;</p>
+    <span>&mdash; FACEBOOK REVIEW</span>
+  </div>
+</section>
+
+<section class="ticket-section" id="menu">
+  <p class="eyebrow">Today's ticket</p>
+  <h2>What's on the griddle</h2>
+  <div class="order-ticket">
+    <div class="ticket-head">
+      <div class="big">CRESCENT CAFE</div>
+      <div class="small">SAND SPRINGS, OK &middot; TABLE FOR YOU</div>
+    </div>
+    <div class="ticket-items">
+      <div class="ticket-row">
+        <span class="name">Meatloaf plate<span class="desc">mashed potatoes, gravy, veg of the day</span></span>
+        <span class="price">$11.99</span>
+      </div>
+      <div class="ticket-row">
+        <span class="name">Chicken fried steak<span class="desc">cream gravy, two sides</span></span>
+        <span class="price">$12.49</span>
+      </div>
+      <div class="ticket-row">
+        <span class="name">Biscuits &amp; gravy<span class="desc">scratch biscuits, sausage gravy</span></span>
+        <span class="price">$7.99</span>
+      </div>
+      <div class="ticket-row">
+        <span class="name">Hand-breaded catfish<span class="desc">hushpuppies, coleslaw</span></span>
+        <span class="price">$13.99</span>
+      </div>
+      <div class="ticket-row">
+        <span class="name">Slice of pie<span class="desc">ask what's fresh today</span></span>
+        <span class="price">$4.50</span>
+      </div>
+    </div>
+    <div class="ticket-foot">FULL MENU &amp; DAILY SPECIALS IN-STORE</div>
+  </div>
+  <p class="ticket-note">Call ahead at (918) 245-6443 for today's specials.</p>
+</section>
+
+<section class="reviews" id="reviews">
+  <p class="eyebrow">Word around town</p>
+  <h2>What Sand Springs is saying</h2>
+  <div class="cork-grid">
+    <div class="cork-card">
+      <span class="badge-stat">#1 in Sand Springs</span>
+      <p>Rated the top restaurant in Sand Springs, ahead of every other spot in town.</p>
+      <span>&mdash; TRIPADVISOR</span>
+    </div>
+    <div class="cork-card">
+      <p>Been coming here for years &mdash; the meatloaf alone is worth the drive.</p>
+      <span>&mdash; SUNDAY MORNING REGULAR</span>
+    </div>
+    <div class="cork-card">
+      <p>Small-town diner done right. Big portions, fast service, and they remember your order.</p>
+      <span>&mdash; SAND SPRINGS LOCAL</span>
+    </div>
+  </div>
+</section>
+
+<section class="footer-info" id="find-us">
+  <div class="footer-grid">
+    <div>
+      <h2>Find us</h2>
+      <p class="addr">
+        3417 S 113th West Ave<br>
+        Sand Springs, OK 74063<br>
+        <a href="tel:+19182456443">(918) 245-6443</a>
+      </p>
+      <table class="hours">
+        <tr><td>Monday &ndash; Friday</td><td>6:00a &ndash; 2:00p</td></tr>
+        <tr><td>Saturday</td><td>6:00a &ndash; 2:00p</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+    </div>
+    <div class="map-wrap">
+      <iframe title="Map to Crescent Cafe" src="https://maps.google.com/maps?q=3417+S+113th+West+Ave,+Sand+Springs,+OK+74063&output=embed" loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Crescent Cafe &middot; Sand Springs, Oklahoma
+  </div>
+</section>
+
+<div class="mobile-cta">
+  <a href="tel:+19182456443">Call now</a>
+  <a href="https://maps.google.com/?q=3417+S+113th+West+Ave,+Sand+Springs,+OK+74063" target="_blank" rel="noopener">Directions</a>
+</div>
+
+</body>
+</html>
