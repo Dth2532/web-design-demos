@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tax Filings LLC — Tulsa, OK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-navy:#182234;
+    --ink-navy-deep:#111926;
+    --ledger-green:#1F5C4A;
+    --brass:#C89B3C;
+    --brass-bright:#E0B454;
+    --paper:#F7F4EC;
+    --paper-line:#E4DFCE;
+    --charcoal:#21262B;
+    --slate:#5C6672;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Work Sans',sans-serif;
+    color:var(--charcoal);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:'Frank Ruhl Libre',serif;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+  .btn{
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:3px;
+    font-weight:600;
+    text-decoration:none;
+    font-size:15px;
+    letter-spacing:.02em;
+    border:1.5px solid transparent;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-brass{background:var(--brass);color:var(--ink-navy-deep);}
+  .btn-brass:hover{background:var(--brass-bright);}
+  .btn-outline{border-color:rgba(247,244,236,.5);color:var(--paper);}
+  .btn-outline:hover{border-color:var(--paper);}
+
+  /* ---------- topbar ---------- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;
+    background:var(--ink-navy-deep);
+    color:var(--paper);
+    font-size:14px;
+  }
+  .topbar .brand{font-family:'Frank Ruhl Libre',serif;font-size:19px;color:var(--brass-bright);}
+  .topbar .brand span{color:var(--paper);font-weight:400;}
+  .topbar-links{display:flex;align-items:center;gap:26px;}
+  .topbar-links a{text-decoration:none;font-weight:500;opacity:.9;}
+  .topbar-links a:hover{opacity:1;color:var(--brass-bright);}
+  .topbar-links a.call{color:var(--brass-bright);opacity:1;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(17,25,38,.94), rgba(17,25,38,.98)),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(247,244,236,.05) 39px, rgba(247,244,236,.05) 40px),
+      var(--ink-navy);
+    color:var(--paper);
+    padding:110px 32px 96px;
+  }
+  .hero-inner{max-width:920px;margin:0 auto;text-align:center;}
+  .hero-eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--brass-bright);
+    margin:0 0 20px;
+  }
+  .hero h1{
+    font-family:'Frank Ruhl Libre',serif;
+    font-weight:500;
+    font-size:clamp(38px,6vw,64px);
+    line-height:1.08;
+    margin:0 0 22px;
+  }
+  .hero h1 em{font-style:italic;color:var(--brass-bright);}
+  .hero p.lede{
+    font-size:clamp(16px,2vw,19px);
+    line-height:1.7;
+    color:#C9CFD8;
+    max-width:56ch;
+    margin:0 auto 40px;
+  }
+  .hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;}
+  .hero-facts{
+    display:flex;flex-wrap:wrap;gap:10px 36px;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:#AFB7C2;
+    border-top:1px solid rgba(247,244,236,.15);
+    padding-top:28px;
+  }
+
+  /* ---------- about strip ---------- */
+  .about{
+    max-width:760px;margin:0 auto;
+    padding:90px 32px 70px;
+    text-align:center;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:.28em;text-transform:uppercase;font-size:12px;
+    color:var(--ledger-green);margin:0 0 16px;
+  }
+  .about h2{
+    font-family:'Frank Ruhl Libre',serif;font-weight:500;
+    font-size:clamp(26px,4vw,36px);margin:0 0 22px;
+  }
+  .about p{font-size:17px;line-height:1.8;color:#454E58;max-width:60ch;margin:0 auto 18px;}
+  .award-row{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    margin-top:32px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--slate);
+  }
+  .award-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--brass);
+    color:#8A6A1E;
+    padding:6px 14px;border-radius:3px;
+    letter-spacing:.05em;text-transform:uppercase;font-size:11.5px;
+  }
+
+  /* ---------- services / ledger ---------- */
+  .services{
+    background:var(--ink-navy-deep);
+    color:var(--paper);
+    padding:90px 32px 100px;
+  }
+  .services-inner{max-width:760px;margin:0 auto;}
+  .services .eyebrow{color:var(--brass-bright);text-align:center;}
+  .services h2{
+    font-family:'Frank Ruhl Libre',serif;font-weight:500;
+    font-size:clamp(26px,4vw,36px);margin:0 0 50px;text-align:center;
+  }
+  .ledger{
+    background:var(--paper);
+    color:var(--charcoal);
+    border-radius:4px;
+    padding:6px 0 0;
+    box-shadow:0 24px 60px rgba(0,0,0,.35);
+  }
+  .ledger-head{
+    display:flex;justify-content:space-between;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--slate);
+    padding:18px 30px 12px;
+    border-bottom:1px solid var(--paper-line);
+  }
+  .ledger-row{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:20px;
+    padding:22px 30px;
+    border-bottom:1px solid var(--paper-line);
+  }
+  .ledger-row:last-child{border-bottom:none;}
+  .ledger-row .check{
+    flex-shrink:0;
+    width:22px;height:22px;
+    border-radius:50%;
+    background:var(--ledger-green);
+    color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;
+    margin-top:2px;
+  }
+  .ledger-row .content{flex:1;}
+  .ledger-row .content .name{
+    font-family:'Frank Ruhl Libre',serif;
+    font-weight:500;font-size:19px;margin-bottom:4px;
+  }
+  .ledger-row .content .desc{font-size:14.5px;color:var(--slate);line-height:1.6;}
+  .ledger-foot{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;color:var(--slate);
+    text-align:center;padding:18px;
+  }
+
+  /* ---------- trust / quote ---------- */
+  .trust{
+    max-width:700px;margin:0 auto;
+    padding:90px 32px;
+    text-align:center;
+  }
+  .trust blockquote{
+    font-family:'Frank Ruhl Libre',serif;
+    font-style:italic;
+    font-size:clamp(20px,3vw,28px);
+    line-height:1.5;
+    color:var(--ink-navy);
+    margin:0 0 20px;
+    position:relative;
+  }
+  .trust blockquote::before{
+    content:"\201C";
+    display:block;
+    font-size:64px;
+    color:var(--brass);
+    line-height:0;
+    margin-bottom:18px;
+    font-style:normal;
+  }
+  .trust cite{
+    font-family:'IBM Plex Mono',monospace;
+    font-style:normal;font-size:12.5px;
+    letter-spacing:.08em;text-transform:uppercase;
+    color:var(--slate);
+  }
+
+  /* ---------- footer ---------- */
+  .footer{
+    background:var(--ink-navy);
+    color:var(--paper);
+    padding:80px 32px 40px;
+  }
+  .footer-grid{
+    max-width:960px;margin:0 auto;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:50px;
+  }
+  .footer h2{
+    font-family:'Frank Ruhl Libre',serif;font-weight:500;
+    font-size:28px;margin:0 0 22px;color:var(--brass-bright);
+  }
+  .footer .addr{font-size:15.5px;line-height:1.85;margin-bottom:22px;color:#D5D9DF;}
+  .footer .addr a{text-decoration:none;border-bottom:1px solid rgba(247,244,236,.35);}
+  table.hours{
+    font-family:'IBM Plex Mono',monospace;font-size:13.5px;
+    border-collapse:collapse;width:100%;max-width:280px;
+  }
+  table.hours td{padding:7px 0;border-bottom:1px dotted rgba(247,244,236,.2);color:#C9CFD8;}
+  table.hours td:last-child{text-align:right;}
+  .map-wrap{border-radius:4px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.4);min-height:260px;}
+  .map-wrap iframe{width:100%;height:100%;min-height:260px;border:0;display:block;filter:saturate(.8) brightness(.95);}
+  .footer-bottom{
+    max-width:960px;margin:56px auto 0;padding-top:24px;
+    border-top:1px solid rgba(247,244,236,.12);
+    font-size:12px;color:#8892A0;text-align:center;
+  }
+
+  @media (max-width:760px){
+    .footer-grid{grid-template-columns:1fr;}
+    .topbar-links a:not(.call){display:none;}
+    .ledger-row{padding:18px 20px;}
+    .ledger-head{padding:16px 20px 10px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="brand">Tax Filings <span>LLC</span></span>
+  <div class="topbar-links">
+    <a href="#services">Services</a>
+    <a href="#find-us">Contact</a>
+    <a class="call" href="tel:+19189650099">(918) 965-0099</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Tulsa, Oklahoma · Est. by Heather Fry, CPA</p>
+    <h1>Taxes, <em>handled</em> &mdash; not just filed.</h1>
+    <p class="lede">Personal and small-business tax preparation, planning, entity formation, and bookkeeping from a Tulsa CPA who actually picks up the phone.</p>
+    <div class="hero-cta">
+      <a class="btn btn-brass" href="https://outlook.office365.com/owa/calendar/TaxFilings@NETORGFT1779249.onmicrosoft.com/bookings/" target="_blank" rel="noopener">Book a consultation</a>
+      <a class="btn btn-outline" href="tel:+19189650099">Call (918) 965-0099</a>
+    </div>
+    <div class="hero-facts">
+      <span>7220 E 41st St, Tulsa, OK 74145</span>
+      <span>&middot;</span>
+      <span>Mon&ndash;Fri 9a&ndash;5p</span>
+      <span>&middot;</span>
+      <span>info@taxfilingstulsa.com</span>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <p class="eyebrow">About the firm</p>
+  <h2>Small enough to know your name</h2>
+  <p>Tax Filings LLC was established by Heather Fry, CPA, to give Tulsa individuals and small businesses the kind of attention that gets lost at the big chains &mdash; a straight answer, a real plan, and returns filed correctly the first time.</p>
+  <p>Whatever the size of your business, the goal is the same: reduce what you owe legally, avoid penalties, and take the stress out of tax season.</p>
+  <div class="award-row">
+    <span class="award-badge">&#9733; Expertise.com &mdash; Top Tax Service, Tulsa</span>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-inner">
+    <p class="eyebrow">What's handled</p>
+    <h2>Your file, itemized</h2>
+    <div class="ledger">
+      <div class="ledger-head">
+        <span>Service</span>
+        <span>Status</span>
+      </div>
+      <div class="ledger-row">
+        <div class="check">&#10003;</div>
+        <div class="content">
+          <div class="name">Tax Preparation</div>
+          <div class="desc">Personal and business returns, filed accurately and on time.</div>
+        </div>
+      </div>
+      <div class="ledger-row">
+        <div class="check">&#10003;</div>
+        <div class="content">
+          <div class="name">Tax Planning</div>
+          <div class="desc">Year-round strategy to reduce what you owe before it's owed.</div>
+        </div>
+      </div>
+      <div class="ledger-row">
+        <div class="check">&#10003;</div>
+        <div class="content">
+          <div class="name">Entity Formation</div>
+          <div class="desc">LLC and business entity setup, done right from day one.</div>
+        </div>
+      </div>
+      <div class="ledger-row">
+        <div class="check">&#10003;</div>
+        <div class="content">
+          <div class="name">Bookkeeping</div>
+          <div class="desc">Ongoing books kept clean, so tax season is never a scramble.</div>
+        </div>
+      </div>
+      <div class="ledger-foot">FULL SERVICE LIST &amp; PRICING AVAILABLE ON CONSULTATION</div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <blockquote>Working with someone local who actually understands Oklahoma small business made all the difference.</blockquote>
+  <cite>&mdash; Sample client feedback</cite>
+</section>
+
+<section class="footer" id="find-us">
+  <div class="footer-grid">
+    <div>
+      <h2>Get in touch</h2>
+      <p class="addr">
+        7220 East 41st Street<br>
+        Tulsa, OK 74145<br>
+        <a href="tel:+19189650099">(918) 965-0099</a><br>
+        <a href="mailto:info@taxfilingstulsa.com">info@taxfilingstulsa.com</a>
+      </p>
+      <table class="hours">
+        <tr><td>Monday &ndash; Friday</td><td>9:00a &ndash; 5:00p</td></tr>
+        <tr><td>Saturday &ndash; Sunday</td><td>Closed</td></tr>
+      </table>
+    </div>
+    <div class="map-wrap">
+      <iframe title="Map to Tax Filings LLC" src="https://maps.google.com/maps?q=7220+East+41st+Street,+Tulsa,+OK+74145&output=embed" loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Tax Filings LLC &middot; Heather Fry, CPA &middot; Tulsa, Oklahoma
+  </div>
+</section>
+
+</body>
+</html>
