@@ -48,26 +48,32 @@
   }
   .topbar .wordmark{font-size:20px;color:var(--neon-yolk);}
   .topbar-links{display:flex;align-items:center;gap:20px;}
-  .topbar-links a{text-decoration:none;font-weight:500;}
-  .topbar-links a:hover{color:var(--neon-yolk);}
+  .topbar-links .nav-item{font-weight:500;cursor:default;}
+  .topbar-links a.call-link{text-decoration:none;font-weight:500;}
+  .topbar-links a.call-link:hover{color:var(--neon-yolk);}
 
-  /* ---------- ellipsis menu (mobile) ---------- */
+  /* ---------- hamburger menu (mobile) ---------- */
   .menu-btn{
     display:none;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
+    gap:5px;
     width:38px;height:38px;
     border-radius:6px;
     border:1px solid rgba(246,239,223,.3);
     background:transparent;
-    color:var(--plate-cream);
     cursor:pointer;
-    font-size:20px;
-    letter-spacing:2px;
-    line-height:1;
-    padding:0 0 4px;
+    padding:0;
   }
-  .menu-btn:hover{border-color:var(--neon-yolk);color:var(--neon-yolk);}
+  .menu-btn:hover{border-color:var(--neon-yolk);}
+  .menu-btn:hover span{background:var(--neon-yolk);}
+  .menu-btn span{
+    display:block;
+    width:18px;height:2px;
+    background:var(--plate-cream);
+    border-radius:1px;
+  }
   .menu-panel{
     display:none;
     position:absolute;
@@ -82,17 +88,16 @@
     z-index:50;
   }
   .menu-panel.open{display:block;}
-  .menu-panel a{
+  .menu-panel .nav-item{
     display:block;
     padding:14px 20px;
-    text-decoration:none;
     color:var(--plate-cream);
     font-size:14px;
     font-weight:500;
     border-bottom:1px solid rgba(246,239,223,.08);
+    cursor:default;
   }
-  .menu-panel a:last-child{border-bottom:none;}
-  .menu-panel a:hover{background:rgba(243,183,46,.1);color:var(--neon-yolk);}
+  .menu-panel .nav-item:last-child{border-bottom:none;}
 
   /* ---------- hero ---------- */
   .hero{
@@ -456,7 +461,7 @@
   @media (max-width:720px){
     .footer-grid{grid-template-columns:1fr;}
     .topbar{position:relative;}
-    .topbar-links a:not(.call-link){display:none;}
+    .topbar-links .nav-item{display:none;}
     .topbar-links{gap:12px;}
     .menu-btn{display:flex;}
   }
@@ -503,16 +508,18 @@
 <div class="topbar">
   <span class="wordmark">Crescent Cafe</span>
   <div class="topbar-links">
-    <a href="#menu">Today's ticket</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#find-us">Hours &amp; location</a>
+    <span class="nav-item">Today's ticket</span>
+    <span class="nav-item">Reviews</span>
+    <span class="nav-item">Hours &amp; location</span>
     <a class="call-link" href="tel:+19182456443">(918) 245-6443</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">&#8942;</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span><span></span>
+    </button>
   </div>
   <div class="menu-panel" id="menuPanel">
-    <a href="#menu">Today's ticket</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#find-us">Hours &amp; location</a>
+    <span class="nav-item">Today's ticket</span>
+    <span class="nav-item">Reviews</span>
+    <span class="nav-item">Hours &amp; location</span>
   </div>
 </div>
 <script>
@@ -523,12 +530,6 @@
       e.stopPropagation();
       var open = panel.classList.toggle('open');
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    panel.addEventListener('click', function(e){
-      if(e.target.tagName === 'A'){
-        panel.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
-      }
     });
     document.addEventListener('click', function(){
       panel.classList.remove('open');
