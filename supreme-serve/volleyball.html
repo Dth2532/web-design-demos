@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volleyball Training — Supreme Serve LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Supreme Serve <span>LLC</span></a>
+    <div class="nav-links">
+      <a href="volleyball.html" class="active">Volleyball Training</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="menu-panel" id="menuPanel">
+    <a href="volleyball.html">Volleyball Training</a>
+    <a href="consulting.html">Consulting</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">Volleyball Training</p>
+  <h1>Training with Coach Tamela Harris</h1>
+  <p class="lede">Former head coach at both the middle school and high school level — training the fundamentals that win games, one rep at a time.</p>
+  <div class="hero-cta">
+    <a class="btn btn-coral" href="#contact">Book a session</a>
+  </div>
+</section>
+
+<section class="credibility">
+  <div class="wrap credibility-inner">
+    <p class="eyebrow" style="text-align:center;">Coaching background</p>
+    <p>Tamela has led programs as a head volleyball coach at both the middle school and high school level, building players up through fundamentals, discipline, and a team-first mentality. That same coaching philosophy carries into every private lesson, clinic, and camp she runs today.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Training options</p>
+      <h2>Find the right fit</h2>
+      <p>Every athlete is different — these are starting points. Reach out and we'll figure out what fits best.</p>
+    </div>
+    <div class="option-grid">
+      <div class="option-card">
+        <h3>Private Lessons</h3>
+        <p>One-on-one coaching focused on individual skill development — serving, passing, hitting, and game IQ.</p>
+        <div class="price-tag">Contact for pricing</div>
+      </div>
+      <div class="option-card">
+        <h3>Team Clinics</h3>
+        <p>Group sessions for teams looking to sharpen fundamentals and build chemistry together.</p>
+        <div class="price-tag">Contact for pricing</div>
+      </div>
+      <div class="option-card">
+        <h3>Skill Camps</h3>
+        <p>Multi-day camps built around a specific skill set, for players ready to take the next step.</p>
+        <div class="price-tag">Contact for pricing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Ready to train?</h2>
+    <p>Tell me a bit about your athlete or team, and I'll follow up with the right plan.</p>
+    <a class="btn btn-coral" href="mailto:info@supremeservellc.com?subject=Volleyball%20training%20inquiry">Email info@supremeservellc.com</a>
+  </div>
+</section>
+
+<footer>
+  Supreme Serve LLC &middot; Tulsa, Oklahoma
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('menuBtn');
+    var panel = document.getElementById('menuPanel');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(){
+      panel.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+    });
+  })();
+</script>
+
+</body>
+</html>
