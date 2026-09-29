@@ -3,59 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web design demos</title>
-<style>
-  body{
-    margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    background:#f6f4ef;
-    color:#2a2a28;
-    padding:64px 24px;
-  }
-  .wrap{max-width:640px;margin:0 auto;}
-  h1{font-size:28px;margin-bottom:8px;}
-  p{color:#5a5a56;line-height:1.6;}
-  ul{list-style:none;padding:0;margin-top:32px;}
-  li{margin-bottom:14px;}
-  a.demo-link{
-    display:block;
-    padding:16px 20px;
-    background:#fff;
-    border:1px solid #e0ddd3;
-    border-radius:8px;
-    text-decoration:none;
-    color:#2a2a28;
-    font-weight:600;
-    transition:border-color .15s ease;
-  }
-  a.demo-link:hover{border-color:#b94e2e;}
-  a.demo-link span{
-    display:block;
-    font-weight:400;
-    font-size:14px;
-    color:#8a8680;
-    margin-top:4px;
-  }
-</style>
+<title>Supreme Serve LLC — Volleyball Training &amp; Project Management Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="wrap">
-  <h1>Web design demos</h1>
-  <p>Concept sites built for local Tulsa-metro businesses currently without a real website.</p>
-  <ul>
-    <li>
-      <a class="demo-link" href="./crescent-cafe/">
-        Crescent Cafe
-        <span>Sand Springs, OK &middot; diner &middot; demo site</span>
-      </a>
-    </li>
-    <li>
-      <a class="demo-link" href="./tax-filings-tulsa/">
-        Tax Filings LLC
-        <span>Tulsa, OK &middot; CPA / tax services &middot; redesign demo</span>
-      </a>
-    </li>
-  </ul>
+
+<div class="nav">
+  <div class="nav-inner">
+    <span class="brand">Supreme Serve <span>LLC</span></span>
+    <div class="nav-links">
+      <a href="volleyball.html">Volleyball Training</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="menu-panel" id="menuPanel">
+    <a href="volleyball.html">Volleyball Training</a>
+    <a href="consulting.html">Consulting</a>
+    <a href="#contact">Contact</a>
+  </div>
 </div>
+
+<section class="hero">
+  <p class="hero-eyebrow">Tulsa, Oklahoma</p>
+  <h1>Excellence on the court. Precision in every project.</h1>
+  <p class="lede">Tamela Harris brings the same discipline that made her a championship-driven volleyball coach to helping teams and businesses execute projects that actually get done.</p>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Two paths, one standard</p>
+      <h2>What can I help you with?</h2>
+    </div>
+    <div class="branch-grid">
+      <div class="branch-card">
+        <div class="icon-wrap">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9.5" stroke="#F2784B" stroke-width="1.8"/>
+            <path d="M12 2.5c3 2.5 3 16.5 0 19M4 8c3-1.5 13-1.5 16 0M4 16c3 1.5 13 1.5 16 0" stroke="#F2784B" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <h3>Volleyball Training</h3>
+        <p>Private lessons, team clinics, and skill camps led by a former head coach at both the middle school and high school level.</p>
+        <a class="btn btn-outline-dark" href="volleyball.html">Explore training →</a>
+      </div>
+      <div class="branch-card">
+        <div class="icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <rect x="4" y="3" width="16" height="18" rx="2" stroke="#F2784B" stroke-width="1.8"/>
+            <path d="M8 8h8M8 12h8M8 16h5" stroke="#F2784B" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Project Management Consulting</h3>
+        <p>Helping teams and businesses plan, execute, and deliver projects — on time, on budget.</p>
+        <a class="btn btn-outline-dark" href="consulting.html">Explore consulting →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="credibility">
+  <div class="wrap credibility-inner">
+    <p class="eyebrow" style="text-align:center;">About Tamela</p>
+    <p>Tamela Harris has spent years building winning teams as a former head volleyball coach at the middle school and high school level, and now channels that same structure, discipline, and follow-through into helping businesses run their projects with the same level of preparation it takes to win a championship.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk about what you need.</h2>
+    <p>Whether it's on the court or in your next project, reach out and let's get started.</p>
+    <a class="btn btn-coral" href="mailto:info@supremeservellc.com?subject=Website%20inquiry">Email info@supremeservellc.com</a>
+  </div>
+</section>
+
+<footer>
+  Supreme Serve LLC &middot; Tulsa, Oklahoma
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('menuBtn');
+    var panel = document.getElementById('menuPanel');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(){
+      panel.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+    });
+  })();
+</script>
+
 </body>
 </html>
